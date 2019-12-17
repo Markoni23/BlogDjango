@@ -1,0 +1,14 @@
+{% extends "../main.html" %}
+{% block content %}
+{% for post in posts %}
+    <div class="card mb-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.text}}</p>
+        <a href="/post/{{post.pk}}" class="btn btn-primary">Go somewhere</a>
+        <footer class="blockquote-footer"><cite title="Source Title">{{post.created}}</cite></footer>
+        
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
