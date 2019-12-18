@@ -1,0 +1,12 @@
+{% extends "../main.html" %}
+{% block content %}
+{% for account in accounts %}
+    <div class="card mb-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Text</h5>
+            <p class="card-text">{{account}}</p>
+        <a href="/post/{{post.pk}}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
