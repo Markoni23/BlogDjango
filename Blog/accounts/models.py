@@ -1,11 +1,11 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 
 class Account(models.Model):
     user = models.OneToOneField(User,
-                             unique=True,
                              on_delete=models.CASCADE,
-                             related_name = 'name')
+                             related_name = 'account')
     folowers = models.ManyToManyField("self",
                                       related_name='readers',
                                       symmetrical=False,

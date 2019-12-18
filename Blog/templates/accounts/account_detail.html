@@ -1,0 +1,23 @@
+{% extends "../main.html" %}
+{% block content %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <h5 class="card-title">Text</h5>
+            <p class="card-text">{{account}}</p>
+        <a href="{% url 'follow' account.pk %}" class="btn btn-primary">Subscribe</a>
+  </div>
+</div>
+
+
+<h3>Posts of {{account}} : </h3>
+{% for post in account.post_set.all %}
+    <h5><a href="{%url 'post-detail' post.pk%}">
+    {{post.title}}
+    </a></h5>
+    <p class="text"> {{post.text}}</p>
+{% endfor %}
+
+
+
+
+{% endblock content %}

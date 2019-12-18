@@ -9,6 +9,7 @@ class PostsListView(LoginRequiredMixin, ListView):
     queryset = Post.objects.all()
     context_object_name = 'posts'
     template_name = 'posts/posts.html'
+    ordering = ['-created']
 
 class PostDetailView(LoginRequiredMixin,DetailView):
     model = Post

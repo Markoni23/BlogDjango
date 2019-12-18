@@ -5,7 +5,7 @@
         <div class="card-body">
             <h5 class="card-title">Text</h5>
             <p class="card-text">{{account}}</p>
-        <a href="/post/{{post.pk}}" class="btn btn-primary">Go somewhere</a>
+        <a href="{%url 'profile' account.pk%}" class="btn btn-primary">See more</a>
   </div>
 </div>
 {% endfor %}
