@@ -25,7 +25,7 @@ SECRET_KEY = 'crh_1i!!54+91o2u3!p817hu^bgf^gs1k*aox(#s)qn=nil81b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates'],
+        'DIRS': ['./Blog/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,6 +130,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'forsteam.markoni@gmail.com'
-EMAIL_HOST_PASSWORD = '*********'
+EMAIL_HOST_PASSWORD = 'xdvfhrxd'
 DEFAULT_FROM_EMAIL = 'forsteam.markoni@gmail.com'
 DEFAULT_TO_EMAIL = 'forsteam.markoni@mail.ru'
