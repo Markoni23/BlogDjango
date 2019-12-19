@@ -130,6 +130,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'forsteam.markoni@gmail.com'
-EMAIL_HOST_PASSWORD = 'xdvfhrxd'
+EMAIL_HOST_PASSWORD = '*********'
 DEFAULT_FROM_EMAIL = 'forsteam.markoni@gmail.com'
 DEFAULT_TO_EMAIL = 'forsteam.markoni@mail.ru'
