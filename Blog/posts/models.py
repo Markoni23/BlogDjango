@@ -7,6 +7,9 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Account, 
                                 on_delete=models.CASCADE)
+    readed_by = models.ManyToManyField(Account,
+                                related_name='readed_posts',
+                                blank = True)
     
     def __str__(self):
         return self.title

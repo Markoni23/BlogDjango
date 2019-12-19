@@ -1,9 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from accounts.models import Account
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+def mark_as_readed(request, pk):
+    user = request.user.account
+    post = Post.objects.get(pk=pk)
+    post.readed_by.add(user)
+    return redirect('post_by_user', pk=user.pk) 
+
 
 class PostsListView(LoginRequiredMixin, ListView):
     queryset = Post.objects.all()

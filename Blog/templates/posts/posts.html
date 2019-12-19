@@ -4,8 +4,12 @@
     <div class="card mb-2" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{post.title}} + {{post.pk}}</h5>
+            {% if user.account in post.readed_by.all  %}
+            <p class="card-text">Readed</p>
+            {% endif %}
             <p class="card-text">{{post.text}}</p>
-        <a href="/post/{{post.pk}}" class="btn btn-primary">Go somewhere</a>
+        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Go somewhere</a>
+        <a href="{% url 'post_readed' post.id %}" class="btn btn-secondary">Mark as read</a>
         <footer class="blockquote-footer"><cite title="Source Title">Created {{post.created}} by <a href="{% url 'profile' post.author.pk%}"> {{post.author}}</a></cite></footer>
         
   </div>
