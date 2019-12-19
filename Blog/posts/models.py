@@ -1,5 +1,7 @@
 from django.db import models
 from accounts.models import Account
+from .utils import send_mail_to_reader
+
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
@@ -16,3 +18,8 @@ class Post(models.Model):
 
     def get_absolute_url(self): 
         return '/post/%i' % self.id
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            send_mail_to_reader(self)
+            super(Post, self).save(*args, **kwargs)

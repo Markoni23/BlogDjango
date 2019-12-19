@@ -10,6 +10,11 @@ def follow(request, pk):
     reader.folowers.add(Account.objects.get(pk=pk))
     return redirect('post_by_user', pk=reader.pk)
 
+def dis_follow(request, pk):
+    reader = request.user.account
+    reader.folowers.remove(Account.objects.get(pk=pk))
+    return redirect('post_by_user', pk=reader.pk)
+
 
 class AccountListView(LoginRequiredMixin, ListView):
     queryset = Account.objects.all()

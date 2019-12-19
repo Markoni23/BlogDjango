@@ -4,14 +4,19 @@
         <div class="card-body">
             <h5 class="card-title">Text</h5>
             <p class="card-text">{{account}}</p>
-        <a href="{% url 'follow' account.pk %}" class="btn btn-primary">Subscribe</a>
+        {% if user.account not in account.readers.all %}
+            <a href="{% url 'follow' account.pk %}" class="btn btn-primary">Subscribe</a>
+        {% else %}
+            <a href="{% url 'dis_follow' account.pk %}" class="btn btn-primary">Unsubsribe</a>
+        {% endif %}
+        
   </div>
 </div>
 
 
 <h3>Posts of {{account}} : </h3>
 {% for post in account.post_set.all %}
-    <h5><a href="{%url 'post-detail' post.pk%}">
+    <h5><a href="{%url 'post_detail' post.pk%}">
     {{post.title}}
     </a></h5>
     <p class="text"> {{post.text}}</p>
