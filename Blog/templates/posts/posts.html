@@ -10,6 +10,9 @@
             <p class="card-text">{{post.text}}</p>
         <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Go somewhere</a>
         <a href="{% url 'post_readed' post.id %}" class="btn btn-secondary">Mark as read</a>
+        {% if user.account == post.author %}
+            <a href="{% url 'post_delete' post.id %}" class="btn btn-danger">Delete Post</a>
+            {% endif %}
         <footer class="blockquote-footer"><cite title="Source Title">Created {{post.created}} by <a href="{% url 'profile' post.author.pk%}"> {{post.author}}</a></cite></footer>
         
   </div>

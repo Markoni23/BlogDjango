@@ -24,7 +24,7 @@ class AccountListView(LoginRequiredMixin, ListView):
 class AccountDetailView(LoginRequiredMixin, DetailView):
     model = Account
 
-class PostByUser(LoginRequiredMixin, ListView):
+class PostForUser(LoginRequiredMixin, ListView):
     template_name = 'posts/posts.html'
     context_object_name = 'posts'
     
@@ -32,5 +32,16 @@ class PostByUser(LoginRequiredMixin, ListView):
         try:
             user = Account.objects.get(pk=self.kwargs['pk'])
             return Post.objects.filter(author__in=user.folowers.all()).order_by('-created')
+        except:
+            return Post.objects.none()
+
+class PostByUser(LoginRequiredMixin, ListView):
+    template_name = 'posts/posts.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        try:
+            user = Account.objects.get(pk=self.kwargs['pk'])
+            return Post.objects.filter(author = user)
         except:
             return Post.objects.none()
